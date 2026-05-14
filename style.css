@@ -1,144 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600&display=swap');
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  min-height: 100vh;
-  background: #000;
-  font-family: 'Rajdhani', sans-serif;
-  overflow-x: hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.bg {
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, #0b1e3d 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 50% 100%, #050e20 0%, transparent 70%),
-    #000;
-  z-index: 0;
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-.container {
-  position: relative;
-  z-index: 10;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('asset/fon.jpg') no-repeat center center/cover;
+    filter: blur(8px); 
+    transform: scale(1.1);
+    z-index: -1;
 }
 
-header {
-  width: 100%;
-  padding: 22px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid rgba(20, 80, 180, 0.15);
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
+.content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 9rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.0);
+    width: 100%;
+    max-width: 500px; 
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 44px;
-  letter-spacing: 8px;
-  color: #fff;
-  text-shadow:
-    0 0 20px rgba(20, 100, 255, 0.8),
-    0 0 50px rgba(20, 100, 255, 0.35),
-    0 0 90px rgba(20, 100, 255, 0.15);
+.avatar {
+    width: 100px; 
+    height: 100px;
+    border-radius: 60%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: -150px;
 }
 
-.logo span { color: #1a6fff; }
-
-.hero {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px 60px;
-  gap: 36px;
+.nickname {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.card-wrap {
-  perspective: 900px;
-  cursor: pointer;
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
 }
 
-.card {
-  width: 280px;
-  height: 360px;
-  border-radius: 18px;
-  transform-style: preserve-3d;
-  transition: transform 0.05s ease-out;
+
+.social-icon {
+    width: 30px; 
+    height: 30px;
+    object-fit: contain; 
+    display: block;
 }
 
-.card-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(20, 80, 200, 0.25);
-  box-shadow:
-    0 0 0 1px rgba(20, 60, 160, 0.1),
-    0 30px 80px rgba(0, 0, 20, 0.95),
-    0 0 60px rgba(15, 70, 200, 0.1);
+.social-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.5);
 }
-
-.card-inner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: none;
-}
-
-.socials {
-  display: flex;
-  gap: 18px;
-}
-
-.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.social-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.3s;
-  border-radius: 12px;
-}
-
-.social-btn:hover::before { opacity: 1; }
-.social-btn:hover { transform: translateY(-3px); }
-
-.btn-tg {
-  border: 1px solid rgba(0, 100, 180, 0.4);
-  background: rgba(0, 80, 160, 0.1);
-}
-.btn-tg::before { background: rgba(0, 100, 200, 0.18); }
-.btn-tg:hover { box-shadow: 0 6px 30px rgba(0, 100, 220, 0.3); border-color: rgba(0,120,255,0.6); }
-
-.btn-dc {
-  border: 1px solid rgba(50, 70, 200, 0.4);
-  background: rgba(40, 55, 180, 0.1);
-}
-.btn-dc::before { background: rgba(60, 80, 220, 0.18); }
-.btn-dc:hover { box-shadow: 0 6px 30px rgba(60, 80, 240, 0.3); border-color: rgba(80,100,255,0.6); }
-
-.social-btn svg { position: relative; z-index: 1; }
